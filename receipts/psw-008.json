@@ -1,0 +1,16 @@
+{
+  "item": "psw-008",
+  "crate": "psw-court",
+  "name": "Court subsystem",
+  "ts_utc": "2026-10-07T04:31:39.370554+00:00",
+  "actor": "lucidota",
+  "device": "VM (exec)",
+  "chat": "subagent:psw-builder",
+  "tests_passed": 9,
+  "tests_failed": 0,
+  "status": "done",
+  "epistemic": "RECONSTRUCTION",
+  "note": "Claim adjudication under published mechanical rule (refute-dominates, 2-support threshold); 9/9 contract tests",
+  "workspace": "~/workspace/park-send-wreck",
+  "verify": "cargo test --workspace (168/168 green 2026-10-07)"
+}

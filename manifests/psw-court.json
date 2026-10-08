@@ -1,0 +1,32 @@
+{
+  "schema": "psw-organelle-manifest/v1",
+  "name": "psw-court",
+  "version": "0.1.0",
+  "description": "Claim adjudication under a published mechanical rule",
+  "contracts": [
+    {
+      "name": "file",
+      "input_schema": "{\"statement\":str,\"evidence\":[...]}",
+      "output_schema": "{\"claim_id\":str}",
+      "idempotent": false
+    },
+    {
+      "name": "adjudicate",
+      "input_schema": "{\"claim_id\":str}",
+      "output_schema": "Ruling",
+      "idempotent": false
+    },
+    {
+      "name": "rulings",
+      "input_schema": "{\"claim_id\":str}",
+      "output_schema": "[Ruling]",
+      "idempotent": true
+    }
+  ],
+  "authority": "operator",
+  "transports": [
+    "in-process"
+  ],
+  "receipts": "always",
+  "entrypoint": "psw_court::Court"
+}

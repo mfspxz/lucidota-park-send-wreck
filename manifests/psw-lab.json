@@ -1,0 +1,32 @@
+{
+  "schema": "psw-organelle-manifest/v1",
+  "name": "psw-lab",
+  "version": "0.1.0",
+  "description": "Experiment sandbox with mechanical pre-registration gate",
+  "contracts": [
+    {
+      "name": "preregister",
+      "input_schema": "PreReg",
+      "output_schema": "{\"ok\":bool}",
+      "idempotent": false
+    },
+    {
+      "name": "run",
+      "input_schema": "exp_id+result",
+      "output_schema": "RunRecord",
+      "idempotent": false
+    },
+    {
+      "name": "runs",
+      "input_schema": "{\"exp_id\":str}",
+      "output_schema": "[RunRecord]",
+      "idempotent": true
+    }
+  ],
+  "authority": "operator",
+  "transports": [
+    "in-process"
+  ],
+  "receipts": "always",
+  "entrypoint": "psw_lab::Lab"
+}

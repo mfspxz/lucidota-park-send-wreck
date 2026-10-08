@@ -1,0 +1,12 @@
+[package]
+name = "psw-archive"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pw-domain = { path = "../pw-domain" }
+pw-manifest = { path = "../pw-manifest" }
+pw-organelles = { path = "../pw-organelles" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }

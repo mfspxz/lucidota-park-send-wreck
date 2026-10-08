@@ -1,0 +1,16 @@
+{
+  "item": "psw-12",
+  "crate": "pw-grid",
+  "name": "SEL-BOX-ADD failure fix",
+  "ts_utc": "2026-10-07T04:31:39.370554+00:00",
+  "actor": "lucidota",
+  "device": "VM (exec)",
+  "chat": "subagent:psw-builder",
+  "tests_passed": 12,
+  "tests_failed": 0,
+  "status": "done",
+  "epistemic": "RECONSTRUCTION",
+  "note": "Named failure reproduced: add_unfiltered (no dedup, no authority filter, quarantined included) preserved as documented repro; fixed add() filters authority/quarantine/dedups with AddedReport; 12/12 tests incl. 3 repro + regression",
+  "workspace": "~/workspace/park-send-wreck",
+  "verify": "cargo test --workspace (168/168 green 2026-10-07)"
+}

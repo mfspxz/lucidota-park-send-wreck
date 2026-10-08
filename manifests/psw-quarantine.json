@@ -1,0 +1,26 @@
+{
+  "schema": "psw-organelle-manifest/v1",
+  "name": "psw-quarantine",
+  "version": "0.1.0",
+  "description": "Containment: inspect untrusted payloads, refuse the dangerous ones, execute nothing",
+  "contracts": [
+    {
+      "name": "inspect",
+      "input_schema": "{\"payload\":json}",
+      "output_schema": "InspectionReport",
+      "idempotent": true
+    },
+    {
+      "name": "contain",
+      "input_schema": "{\"payload\":json}",
+      "output_schema": "{\"container_id\":str}",
+      "idempotent": false
+    }
+  ],
+  "authority": "operator",
+  "transports": [
+    "in-process"
+  ],
+  "receipts": "always",
+  "entrypoint": "psw_quarantine::Quarantine"
+}

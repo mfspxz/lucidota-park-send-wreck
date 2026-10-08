@@ -1,0 +1,32 @@
+{
+  "schema": "psw-organelle-manifest/v1",
+  "name": "psw-observatory",
+  "version": "0.1.0",
+  "description": "Append-only telemetry stream: emit, query, tail",
+  "contracts": [
+    {
+      "name": "emit",
+      "input_schema": "{\"kind\":str,\"source\":str,\"payload\":json}",
+      "output_schema": "Event",
+      "idempotent": false
+    },
+    {
+      "name": "query",
+      "input_schema": "{\"kind\":str?,\"since_seq\":int,\"limit\":int}",
+      "output_schema": "[Event]",
+      "idempotent": true
+    },
+    {
+      "name": "tail",
+      "input_schema": "{\"n\":int}",
+      "output_schema": "[Event]",
+      "idempotent": true
+    }
+  ],
+  "authority": "open",
+  "transports": [
+    "in-process"
+  ],
+  "receipts": "on-error",
+  "entrypoint": "psw_observatory::Observatory"
+}

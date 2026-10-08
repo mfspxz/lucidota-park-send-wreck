@@ -1,0 +1,10 @@
+[package]
+name = "pw-organelles"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pw-domain = { path = "../pw-domain" }
+pw-manifest = { path = "../pw-manifest" }
+serde_json = { workspace = true }
+thiserror = { workspace = true }

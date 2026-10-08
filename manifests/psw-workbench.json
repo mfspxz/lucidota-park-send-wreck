@@ -1,0 +1,26 @@
+{
+  "schema": "psw-organelle-manifest/v1",
+  "name": "psw-workbench",
+  "version": "0.1.0",
+  "description": "Composition canvas: validate organelle flows before execution",
+  "contracts": [
+    {
+      "name": "compose",
+      "input_schema": "Flow+catalog",
+      "output_schema": "FlowPlan",
+      "idempotent": true
+    },
+    {
+      "name": "describe",
+      "input_schema": "{}",
+      "output_schema": "manifest",
+      "idempotent": true
+    }
+  ],
+  "authority": "operator",
+  "transports": [
+    "in-process"
+  ],
+  "receipts": "always",
+  "entrypoint": "psw_workbench::Workbench"
+}

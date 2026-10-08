@@ -1,0 +1,16 @@
+{
+  "item": "psw-002",
+  "crate": "psw-lab",
+  "name": "Lab subsystem",
+  "ts_utc": "2026-10-07T04:31:39.370554+00:00",
+  "actor": "lucidota",
+  "device": "VM (exec)",
+  "chat": "subagent:psw-builder",
+  "tests_passed": 8,
+  "tests_failed": 0,
+  "status": "done",
+  "epistemic": "RECONSTRUCTION",
+  "note": "Mechanical pre-reg gate: no run without hypothesis+method+falsifier; 8/8 contract tests",
+  "workspace": "~/workspace/park-send-wreck",
+  "verify": "cargo test --workspace (168/168 green 2026-10-07)"
+}

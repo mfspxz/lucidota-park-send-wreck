@@ -1,0 +1,38 @@
+{
+  "schema": "psw-organelle-manifest/v1",
+  "name": "psw-cockpit",
+  "version": "0.1.0",
+  "description": "Operator command surface: plan and drive releases stage by stage",
+  "contracts": [
+    {
+      "name": "plan",
+      "input_schema": "{\"name\":str,\"stages\":[str]}",
+      "output_schema": "{\"release_id\":str}",
+      "idempotent": false
+    },
+    {
+      "name": "start",
+      "input_schema": "{\"release_id\":str,\"stage\":str}",
+      "output_schema": "{\"ok\":bool}",
+      "idempotent": false
+    },
+    {
+      "name": "finish",
+      "input_schema": "{\"release_id\":str,\"stage\":str,\"ok\":bool,\"note\":str}",
+      "output_schema": "{\"ok\":bool}",
+      "idempotent": false
+    },
+    {
+      "name": "status",
+      "input_schema": "{\"release_id\":str}",
+      "output_schema": "Release",
+      "idempotent": true
+    }
+  ],
+  "authority": "admin",
+  "transports": [
+    "in-process"
+  ],
+  "receipts": "always",
+  "entrypoint": "psw_cockpit::Cockpit"
+}

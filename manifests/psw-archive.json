@@ -1,0 +1,32 @@
+{
+  "schema": "psw-organelle-manifest/v1",
+  "name": "psw-archive",
+  "version": "0.1.0",
+  "description": "Content-addressed vault: blake2 ids, integrity-checked reads",
+  "contracts": [
+    {
+      "name": "put",
+      "input_schema": "{\"bytes_b64\":str}",
+      "output_schema": "{\"id\":str}",
+      "idempotent": true
+    },
+    {
+      "name": "get",
+      "input_schema": "{\"id\":str}",
+      "output_schema": "{\"bytes_b64\":str}",
+      "idempotent": true
+    },
+    {
+      "name": "contains",
+      "input_schema": "{\"id\":str}",
+      "output_schema": "{\"found\":bool}",
+      "idempotent": true
+    }
+  ],
+  "authority": "operator",
+  "transports": [
+    "in-process"
+  ],
+  "receipts": "always",
+  "entrypoint": "psw_archive::Archive"
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "psw-organelle-manifest/v1",
+  "name": "psw-arts-crafts",
+  "version": "0.1.0",
+  "description": "Rendering organelle: grid state -> SVG maps",
+  "contracts": [
+    {
+      "name": "render-map",
+      "input_schema": "{\"entities\":[...],\"box\":[...]}",
+      "output_schema": "{\"svg\":str}",
+      "idempotent": true
+    },
+    {
+      "name": "render-receipts",
+      "input_schema": "{\"count\":int}",
+      "output_schema": "{\"svg\":str}",
+      "idempotent": true
+    }
+  ],
+  "authority": "open",
+  "transports": [
+    "in-process"
+  ],
+  "receipts": "on-error",
+  "entrypoint": "psw_arts_crafts::ArtsCrafts"
+}

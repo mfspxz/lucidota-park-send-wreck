@@ -1,0 +1,16 @@
+{
+  "item": "psw-15",
+  "crate": "psw-pipeline",
+  "name": "Operator Cockpit dogfood",
+  "ts_utc": "2026-10-07T04:31:39.370554+00:00",
+  "actor": "lucidota",
+  "device": "VM (exec)",
+  "chat": "subagent:psw-builder",
+  "tests_passed": 1,
+  "tests_failed": 0,
+  "status": "done",
+  "epistemic": "RECONSTRUCTION",
+  "note": "Cockpit operated 1 full 8-stage release through the host (Admin); all stages DONE; Open caller refused on cockpit; covered by cockpit_dogfood_operates_release test",
+  "workspace": "~/workspace/park-send-wreck",
+  "verify": "cargo test --workspace (168/168 green 2026-10-07)"
+}

@@ -1,0 +1,23 @@
+[package]
+name = "psw-pipeline"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pw-domain = { path = "../pw-domain" }
+pw-host = { path = "../pw-host" }
+pw-manifest = { path = "../pw-manifest" }
+pw-organelles = { path = "../pw-organelles" }
+psw-workbench = { path = "../psw-workbench" }
+psw-lab = { path = "../psw-lab" }
+psw-forge = { path = "../psw-forge" }
+psw-arts-crafts = { path = "../psw-arts-crafts" }
+psw-archive = { path = "../psw-archive" }
+psw-parity = { path = "../psw-parity" }
+psw-observatory = { path = "../psw-observatory" }
+psw-court = { path = "../psw-court" }
+psw-quarantine = { path = "../psw-quarantine" }
+psw-cockpit = { path = "../psw-cockpit" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }

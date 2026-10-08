@@ -1,0 +1,10 @@
+[package]
+name = "pw-manifest"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pw-domain = { path = "../pw-domain" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }

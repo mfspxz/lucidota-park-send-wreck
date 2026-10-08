@@ -1,0 +1,14 @@
+[package]
+name = "psw-redteam"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pw-domain = { path = "../pw-domain" }
+pw-host = { path = "../pw-host" }
+pw-manifest = { path = "../pw-manifest" }
+pw-organelles = { path = "../pw-organelles" }
+psw-pipeline = { path = "../psw-pipeline" }
+psw-quarantine = { path = "../psw-quarantine" }
+psw-archive = { path = "../psw-archive" }
+serde_json = { workspace = true }

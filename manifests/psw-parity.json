@@ -1,0 +1,20 @@
+{
+  "schema": "psw-organelle-manifest/v1",
+  "name": "psw-parity",
+  "version": "0.1.0",
+  "description": "Transport equivalence checker: same call, same digest, every door",
+  "contracts": [
+    {
+      "name": "check",
+      "input_schema": "{\"organelle\":str,\"contract\":str,\"samples\":[...]}",
+      "output_schema": "ParityReport",
+      "idempotent": true
+    }
+  ],
+  "authority": "operator",
+  "transports": [
+    "in-process"
+  ],
+  "receipts": "always",
+  "entrypoint": "psw_parity::Parity"
+}

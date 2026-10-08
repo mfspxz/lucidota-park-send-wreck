@@ -1,0 +1,26 @@
+{
+  "schema": "psw-organelle-manifest/v1",
+  "name": "psw-forge",
+  "version": "0.1.0",
+  "description": "Deterministic artifact builder: spec -> content-addressed artifact",
+  "contracts": [
+    {
+      "name": "build",
+      "input_schema": "{\"kind\":str,\"spec\":json}",
+      "output_schema": "Artifact",
+      "idempotent": true
+    },
+    {
+      "name": "verify",
+      "input_schema": "Artifact",
+      "output_schema": "{\"valid\":bool}",
+      "idempotent": true
+    }
+  ],
+  "authority": "operator",
+  "transports": [
+    "in-process"
+  ],
+  "receipts": "always",
+  "entrypoint": "psw_forge::Forge"
+}

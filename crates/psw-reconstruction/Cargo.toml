@@ -1,0 +1,13 @@
+[package]
+name = "psw-reconstruction"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pw-domain = { path = "../pw-domain" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+blake2 = { workspace = true }
+digest = { workspace = true }
+hex = { workspace = true }
