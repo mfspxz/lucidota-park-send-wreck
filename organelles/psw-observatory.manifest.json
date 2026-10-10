@@ -1,0 +1,87 @@
+{
+  "schema_version": "1",
+  "name": "psw-observatory",
+  "codon": "ob",
+  "version": "0.1.0",
+  "description": "telemetry for the PSW: append-only event stream with kind-filtered queries (organelle)",
+  "contracts": [
+    {
+      "op": "emit",
+      "description": "append one telemetry event",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "kind",
+          "source"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "payload": {
+            "type": "object"
+          }
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.observatory.write"
+    },
+    {
+      "op": "query",
+      "description": "events by kind, from a seq, with limit",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "since_seq": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    {
+      "op": "tail",
+      "description": "last n events",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "n": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    {
+      "op": "count",
+      "description": "event count",
+      "input_schema": {
+        "type": "object"
+      }
+    }
+  ],
+  "authority": {
+    "mutation_class": "write",
+    "declared_valence": "candidate",
+    "required_capability": "psw.observatory.write",
+    "granted_capabilities": [
+      "psw.observatory.write"
+    ]
+  },
+  "transports": [
+    "native",
+    "unix_socket"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

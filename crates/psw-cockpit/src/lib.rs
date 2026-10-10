@@ -2,6 +2,8 @@
 //! A release is a named sequence of stages. The cockpit moves stages
 //! through PRE -> RUNNING -> DONE | FAILED, recording each transition.
 //! A failed stage halts the release (fail-closed: no later stage runs).
+mod organelle;
+pub use organelle::*;
 use pw_domain::AuthorityTier;
 use pw_manifest::{Contract, OrganelleManifest, ReceiptPolicy, Transport, SCHEMA_VERSION};
 use pw_organelles::{Organelle, OrganelleError};

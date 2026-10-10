@@ -6,6 +6,8 @@
 //!   - otherwise                        -> INCONCLUSIVE
 //! Verdicts are recorded with the evidence snapshot; re-ruling appends a
 //! new verdict, never rewrites history.
+mod organelle;
+pub use organelle::*;
 use pw_domain::{AuthorityTier, Claim, EpistemicStatus, Verdict};
 use pw_manifest::{Contract, OrganelleManifest, ReceiptPolicy, Transport, SCHEMA_VERSION};
 use pw_organelles::{Organelle, OrganelleError};

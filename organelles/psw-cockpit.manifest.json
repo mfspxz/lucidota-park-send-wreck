@@ -1,0 +1,114 @@
+{
+  "schema_version": "1",
+  "name": "psw-cockpit",
+  "codon": "ck",
+  "version": "0.1.0",
+  "description": "operator cockpit: named release stage sequences with status (organelle)",
+  "contracts": [
+    {
+      "op": "plan_release",
+      "description": "plan a named release as a stage sequence; returns the release id",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "name",
+          "stages"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "stages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.cockpit.write"
+    },
+    {
+      "op": "start_stage",
+      "description": "start one stage of a release",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "id",
+          "stage"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "stage": {
+            "type": "string"
+          }
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.cockpit.write"
+    },
+    {
+      "op": "finish_stage",
+      "description": "finish one stage with ok flag + note",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "id",
+          "stage",
+          "ok"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "stage": {
+            "type": "string"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.cockpit.write"
+    },
+    {
+      "op": "status",
+      "description": "release status",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "authority": {
+    "mutation_class": "write",
+    "declared_valence": "candidate",
+    "required_capability": "psw.cockpit.write",
+    "granted_capabilities": [
+      "psw.cockpit.write"
+    ]
+  },
+  "transports": [
+    "native",
+    "unix_socket"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

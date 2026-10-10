@@ -12,6 +12,8 @@
 //! This crate is the evidence registry: it records those hashes as
 //! constants, scans for byte-proof (the actual artifacts), and reports
 //! the honest trinary status. It never claims byte-proof it does not have.
+mod organelle;
+pub use organelle::*;
 use pw_domain::{hash_bytes_hex, EpistemicStatus};
 use serde::{Deserialize, Serialize};
 

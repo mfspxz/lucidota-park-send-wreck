@@ -1,0 +1,91 @@
+{
+  "schema_version": "1",
+  "name": "pw-grid",
+  "codon": "gr",
+  "version": "0.1.0",
+  "description": "RTS/GIS interaction surface: entities on a 2D grid, box selection (organelle)",
+  "contracts": [
+    {
+      "op": "insert",
+      "description": "insert a grid entity (quarantined entities never enter selections)",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "id",
+          "x",
+          "y"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "tier": {
+            "type": "string"
+          },
+          "quarantined": {
+            "type": "boolean"
+          }
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.grid.write"
+    },
+    {
+      "op": "query_box",
+      "description": "entities inside a selection box",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "x0",
+          "y0",
+          "x1",
+          "y1"
+        ],
+        "properties": {
+          "x0": {
+            "type": "number"
+          },
+          "y0": {
+            "type": "number"
+          },
+          "x1": {
+            "type": "number"
+          },
+          "y1": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    {
+      "op": "len",
+      "description": "entity count",
+      "input_schema": {
+        "type": "object"
+      }
+    }
+  ],
+  "authority": {
+    "mutation_class": "write",
+    "declared_valence": "candidate",
+    "required_capability": "psw.grid.write",
+    "granted_capabilities": [
+      "psw.grid.write"
+    ]
+  },
+  "transports": [
+    "native",
+    "unix_socket"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

@@ -2,6 +2,8 @@
 //! Mechanical pre-registration gate: no experiment runs without a committed
 //! pre-registration (hypothesis + method + falsifier). Runs are recorded
 //! against their pre-reg; results never mutate the pre-reg itself.
+mod organelle;
+pub use organelle::*;
 use pw_domain::AuthorityTier;
 use pw_manifest::{Contract, OrganelleManifest, ReceiptPolicy, Transport, SCHEMA_VERSION};
 use pw_organelles::{Organelle, OrganelleError};

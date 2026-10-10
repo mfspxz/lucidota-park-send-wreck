@@ -11,6 +11,8 @@
 //!     documented and tested as the reproduction;
 //!   - `add` is the fix: authority-filtered, quarantine-aware, deduplicated.
 //! Trinary: RECONSTRUCTION, not a byte-faithful restore.
+mod organelle;
+pub use organelle::*;
 use pw_domain::{AuthorityTier, EntityId};
 use serde::{Deserialize, Serialize};
 use std::collections::HashSet;

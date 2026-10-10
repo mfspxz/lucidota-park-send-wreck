@@ -21,6 +21,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "cfg-if"
+version = "1.0.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4e7648175b45a9a48536d676f68d918270699102aa8dab5496df06904c914600"
+
+[[package]]
+name = "cpufeatures"
+version = "0.2.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "59ed5838eebb26a2bb2e58f6d5b5316989ae9d08bab10e0e6d103e656d1b0280"
+dependencies = [
+ "libc",
+]
+
+[[package]]
 name = "crypto-common"
 version = "0.1.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -64,10 +79,37 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8f42a60cbdf9a97f5d2305f08a87dc4e09308d1276d28c869c684d7777685682"
 
 [[package]]
+name = "libc"
+version = "0.2.190"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ce5d3ddc6d3fa000eb1536d85e147bfe31aacaba692ed6a876f95cb7c855be78"
+
+[[package]]
 name = "memchr"
 version = "2.8.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98"
+
+[[package]]
+name = "organelle-host"
+version = "1.0.0"
+dependencies = [
+ "hex",
+ "organelle-manifest",
+ "serde",
+ "serde_json",
+ "sha2",
+]
+
+[[package]]
+name = "organelle-manifest"
+version = "1.0.0"
+dependencies = [
+ "hex",
+ "serde",
+ "serde_json",
+ "sha2",
+]
 
 [[package]]
 name = "proc-macro2"
@@ -82,6 +124,8 @@ dependencies = [
 name = "psw-archive"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "pw-manifest",
  "pw-organelles",
@@ -94,6 +138,8 @@ dependencies = [
 name = "psw-arts-crafts"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "pw-manifest",
  "pw-organelles",
@@ -106,6 +152,8 @@ dependencies = [
 name = "psw-cockpit"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "pw-manifest",
  "pw-organelles",
@@ -118,6 +166,8 @@ dependencies = [
 name = "psw-court"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "pw-manifest",
  "pw-organelles",
@@ -130,6 +180,8 @@ dependencies = [
 name = "psw-forge"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "pw-manifest",
  "pw-organelles",
@@ -142,6 +194,8 @@ dependencies = [
 name = "psw-lab"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "pw-manifest",
  "pw-organelles",
@@ -154,6 +208,8 @@ dependencies = [
 name = "psw-observatory"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "pw-manifest",
  "pw-organelles",
@@ -166,6 +222,8 @@ dependencies = [
 name = "psw-parity"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "pw-manifest",
  "pw-organelles",
@@ -178,6 +236,8 @@ dependencies = [
 name = "psw-pipeline"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "psw-archive",
  "psw-arts-crafts",
  "psw-cockpit",
@@ -201,6 +261,8 @@ dependencies = [
 name = "psw-quarantine"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "pw-manifest",
  "pw-organelles",
@@ -216,6 +278,8 @@ dependencies = [
  "blake2",
  "digest",
  "hex",
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "serde",
  "serde_json",
@@ -240,6 +304,8 @@ dependencies = [
 name = "psw-workbench"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "pw-manifest",
  "pw-organelles",
@@ -264,6 +330,8 @@ dependencies = [
 name = "pw-grid"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "serde",
  "serde_json",
@@ -305,6 +373,8 @@ dependencies = [
 name = "pw-plugin"
 version = "0.1.0"
 dependencies = [
+ "organelle-host",
+ "organelle-manifest",
  "pw-domain",
  "pw-manifest",
  "pw-organelles",
@@ -362,6 +432,17 @@ dependencies = [
  "serde",
  "serde_core",
  "zmij",
+]
+
+[[package]]
+name = "sha2"
+version = "0.10.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a7507d819769d01a365ab707794a4084392c824f54a7a6a7862f8c3d0892b283"
+dependencies = [
+ "cfg-if",
+ "cpufeatures",
+ "digest",
 ]
 
 [[package]]

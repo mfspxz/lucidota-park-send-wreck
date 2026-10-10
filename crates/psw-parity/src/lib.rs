@@ -3,6 +3,8 @@
 //! result. Parity compares output digests across transports for the same
 //! (organelle, contract, input) and reports divergence. A divergent
 //! transport is a semantic leak and fails the check.
+mod organelle;
+pub use organelle::*;
 use pw_domain::AuthorityTier;
 use pw_manifest::{Contract, OrganelleManifest, ReceiptPolicy, Transport, SCHEMA_VERSION};
 use pw_organelles::{Organelle, OrganelleError};

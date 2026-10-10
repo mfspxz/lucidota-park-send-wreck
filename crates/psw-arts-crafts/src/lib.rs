@@ -2,6 +2,8 @@
 //! Turns grid state + selections into SVG maps. The visual layer of the
 //! RTS/GIS workbench — what the operator actually looks at. Rendering is
 //! pure: same input -> same SVG bytes, always.
+mod organelle;
+pub use organelle::*;
 use pw_domain::AuthorityTier;
 use pw_manifest::{Contract, OrganelleManifest, ReceiptPolicy, Transport, SCHEMA_VERSION};
 use pw_organelles::{Organelle, OrganelleError};

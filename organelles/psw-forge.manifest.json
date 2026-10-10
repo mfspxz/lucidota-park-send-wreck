@@ -1,0 +1,60 @@
+{
+  "schema_version": "1",
+  "name": "psw-forge",
+  "codon": "fg",
+  "version": "0.1.0",
+  "description": "deterministic artifact builder: same spec bytes -> same artifact bytes (organelle)",
+  "contracts": [
+    {
+      "op": "build",
+      "description": "compile a spec into an artifact (deterministic)",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "kind",
+          "spec"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "spec": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "op": "verify",
+      "description": "verify an artifact's content id against its spec digest",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "artifact"
+        ],
+        "properties": {
+          "artifact": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  ],
+  "authority": {
+    "mutation_class": "read_only",
+    "declared_valence": "proven",
+    "required_capability": null,
+    "granted_capabilities": []
+  },
+  "transports": [
+    "native",
+    "unix_socket",
+    "mcp",
+    "rest"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

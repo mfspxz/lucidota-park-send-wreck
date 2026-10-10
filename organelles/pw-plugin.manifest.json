@@ -1,0 +1,60 @@
+{
+  "schema_version": "1",
+  "name": "pw-plugin",
+  "codon": "pg",
+  "version": "0.1.0",
+  "description": "plugin loading v1: manifest-driven, in-process (no untrusted native code) (organelle)",
+  "contracts": [
+    {
+      "op": "discover",
+      "description": "discover plugin manifests under a root dir",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "root"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          }
+        }
+      },
+      "mutation_class": "external_effect",
+      "required_capability": "psw.plugin.load"
+    },
+    {
+      "op": "load_all",
+      "description": "instantiate all discovered plugins via registered factories; returns count",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "root"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          }
+        }
+      },
+      "mutation_class": "external_effect",
+      "required_capability": "psw.plugin.load"
+    }
+  ],
+  "authority": {
+    "mutation_class": "external_effect",
+    "declared_valence": "candidate",
+    "required_capability": "psw.plugin.load",
+    "granted_capabilities": [
+      "psw.plugin.load"
+    ]
+  },
+  "transports": [
+    "native",
+    "unix_socket"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

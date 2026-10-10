@@ -5,6 +5,8 @@
 //! (workbench flow), executed (host), tested (probes), audited (court),
 //! proven (receipt chain), archived (CAS). Any stage failing halts the run
 //! and the failure is itself receipted.
+mod organelle;
+pub use organelle::*;
 use pw_domain::{AuthorityTier, Verdict};
 use pw_host::Host;
 use pw_manifest::Transport;

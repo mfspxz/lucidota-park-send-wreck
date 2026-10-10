@@ -3,6 +3,8 @@
 //! a flow BEFORE anything executes: unknown organelles, undeclared contracts,
 //! and cycles are all refused. This is the feat/workbench-ontological-execution
 //! branch made concrete: execution follows validated composition.
+mod organelle;
+pub use organelle::*;
 use pw_domain::AuthorityTier;
 use pw_manifest::{Contract, OrganelleManifest, ReceiptPolicy, Transport, SCHEMA_VERSION};
 use pw_organelles::{Organelle, OrganelleError};

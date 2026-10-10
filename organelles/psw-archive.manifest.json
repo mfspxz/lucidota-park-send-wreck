@@ -1,0 +1,80 @@
+{
+  "schema_version": "1",
+  "name": "psw-archive",
+  "codon": "ar",
+  "version": "0.1.0",
+  "description": "content-addressed vault: put bytes -> blake2 content id; get id -> bytes (organelle)",
+  "contracts": [
+    {
+      "op": "put",
+      "description": "store text bytes; returns the blake2-512 content id",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.archive.write"
+    },
+    {
+      "op": "get",
+      "description": "retrieve bytes by content id",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "op": "contains",
+      "description": "whether a content id is stored",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "op": "len",
+      "description": "stored blob count",
+      "input_schema": {
+        "type": "object"
+      }
+    }
+  ],
+  "authority": {
+    "mutation_class": "write",
+    "declared_valence": "candidate",
+    "required_capability": "psw.archive.write",
+    "granted_capabilities": [
+      "psw.archive.write"
+    ]
+  },
+  "transports": [
+    "native",
+    "unix_socket"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

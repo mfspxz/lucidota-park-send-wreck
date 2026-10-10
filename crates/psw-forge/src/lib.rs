@@ -2,6 +2,8 @@
 //! A spec (JSON) is compiled into an artifact. Same spec bytes -> same
 //! artifact bytes -> same blake2 content id. Determinism is the contract:
 //! a forge that builds different bytes from the same spec is broken.
+mod organelle;
+pub use organelle::*;
 use pw_domain::{hash_bytes_hex, AuthorityTier};
 use pw_manifest::{Contract, OrganelleManifest, ReceiptPolicy, Transport, SCHEMA_VERSION};
 use pw_organelles::{Organelle, OrganelleError};

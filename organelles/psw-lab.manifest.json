@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "name": "psw-lab",
+  "codon": "lb",
+  "version": "0.1.0",
+  "description": "experiment sandbox: no run without a committed pre-registration (organelle)",
+  "contracts": [
+    {
+      "op": "preregister",
+      "description": "commit a pre-registration (hypothesis + method + falsifier)",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "exp_id",
+          "hypothesis",
+          "method",
+          "falsifier"
+        ],
+        "properties": {
+          "exp_id": {
+            "type": "string"
+          },
+          "hypothesis": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "falsifier": {
+            "type": "string"
+          }
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.lab.write"
+    },
+    {
+      "op": "run",
+      "description": "record a run against its pre-registration (pre-reg never mutates)",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "exp_id",
+          "result"
+        ],
+        "properties": {
+          "exp_id": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.lab.write"
+    },
+    {
+      "op": "runs_for",
+      "description": "run records for one experiment",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "exp_id"
+        ],
+        "properties": {
+          "exp_id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "authority": {
+    "mutation_class": "write",
+    "declared_valence": "candidate",
+    "required_capability": "psw.lab.write",
+    "granted_capabilities": [
+      "psw.lab.write"
+    ]
+  },
+  "transports": [
+    "native",
+    "unix_socket"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

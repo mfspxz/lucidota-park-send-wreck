@@ -2,6 +2,8 @@
 //! Put bytes -> blake2-512 content id. Get id -> bytes or NotFound.
 //! Content addressing means the id IS the integrity check: bytes that do
 //! not hash to the requested id can never be returned for it.
+mod organelle;
+pub use organelle::*;
 use pw_domain::{hash_bytes_hex, AuthorityTier};
 use pw_manifest::{Contract, OrganelleManifest, ReceiptPolicy, Transport, SCHEMA_VERSION};
 use pw_organelles::{Organelle, OrganelleError};

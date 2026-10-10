@@ -1,0 +1,54 @@
+{
+  "schema_version": "1",
+  "name": "psw-quarantine",
+  "codon": "qn",
+  "version": "0.1.0",
+  "description": "containment for untrusted payloads: inspect scores risk, contain decides (organelle)",
+  "contracts": [
+    {
+      "op": "inspect",
+      "description": "score a payload for risk (pure; never executes it)",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "payload"
+        ],
+        "properties": {
+          "payload": {}
+        }
+      }
+    },
+    {
+      "op": "contain",
+      "description": "containment decision for a payload (id on accept; report on refuse)",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "payload"
+        ],
+        "properties": {
+          "payload": {}
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.quarantine.write"
+    }
+  ],
+  "authority": {
+    "mutation_class": "write",
+    "declared_valence": "candidate",
+    "required_capability": "psw.quarantine.write",
+    "granted_capabilities": [
+      "psw.quarantine.write"
+    ]
+  },
+  "transports": [
+    "native",
+    "unix_socket"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

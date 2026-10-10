@@ -2,6 +2,8 @@
 //! Append-only event stream. Every event carries a timestamp, kind, source,
 //! and payload. Queries filter by kind and recency. The observatory never
 //! mutates history — it only appends and reads.
+mod organelle;
+pub use organelle::*;
 use pw_domain::AuthorityTier;
 use pw_manifest::{Contract, OrganelleManifest, ReceiptPolicy, Transport, SCHEMA_VERSION};
 use pw_organelles::{Organelle, OrganelleError};

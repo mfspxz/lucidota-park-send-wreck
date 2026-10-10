@@ -1,0 +1,79 @@
+{
+  "schema_version": "1",
+  "name": "psw-court",
+  "codon": "ct",
+  "version": "0.1.0",
+  "description": "adjudication of claims: evidence tagged supports/refutes/neutral -> ruling (organelle)",
+  "contracts": [
+    {
+      "op": "file",
+      "description": "file a claim with evidence items; returns the claim id",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "statement",
+          "evidence"
+        ],
+        "properties": {
+          "statement": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array"
+          }
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.court.write"
+    },
+    {
+      "op": "adjudicate",
+      "description": "rule on a filed claim",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "claim_id"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          }
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.court.write"
+    },
+    {
+      "op": "rulings_for",
+      "description": "rulings recorded for a claim",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "claim_id"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "authority": {
+    "mutation_class": "write",
+    "declared_valence": "candidate",
+    "required_capability": "psw.court.write",
+    "granted_capabilities": [
+      "psw.court.write"
+    ]
+  },
+  "transports": [
+    "native",
+    "unix_socket"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

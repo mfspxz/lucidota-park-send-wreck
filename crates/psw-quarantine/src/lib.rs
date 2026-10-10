@@ -3,6 +3,8 @@
 //! signals; `contain` admits it only into a sealed report, never into
 //! execution. Fail-closed: high-risk payloads are refused outright, and
 //! there is deliberately NO `execute` contract.
+mod organelle;
+pub use organelle::*;
 use pw_domain::AuthorityTier;
 use pw_manifest::{Contract, OrganelleManifest, ReceiptPolicy, Transport, SCHEMA_VERSION};
 use pw_organelles::{Organelle, OrganelleError};

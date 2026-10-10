@@ -1,0 +1,49 @@
+{
+  "schema_version": "1",
+  "name": "psw-reconstruction",
+  "codon": "rc",
+  "version": "0.1.0",
+  "description": "reconstruction audit: scan dirs for proven byte hashes of the lost tree (organelle)",
+  "contracts": [
+    {
+      "op": "verify_proof",
+      "description": "scan search dirs (recursive, bounded) for proven artifact hashes",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "dirs"
+        ],
+        "properties": {
+          "dirs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "op": "crate_inventory",
+      "description": "the 19-crate inventory of the Aug 2026 tree",
+      "input_schema": {
+        "type": "object"
+      }
+    }
+  ],
+  "authority": {
+    "mutation_class": "read_only",
+    "declared_valence": "candidate",
+    "required_capability": null,
+    "granted_capabilities": []
+  },
+  "transports": [
+    "native",
+    "unix_socket"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

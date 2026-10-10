@@ -1,0 +1,47 @@
+{
+  "schema_version": "1",
+  "name": "psw-parity",
+  "codon": "py",
+  "version": "0.1.0",
+  "description": "transport-equivalence checker: same organelle+contract across transports must agree (organelle)",
+  "contracts": [
+    {
+      "op": "check",
+      "description": "check transport samples for equivalence (digests must all match)",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "organelle",
+          "contract",
+          "samples"
+        ],
+        "properties": {
+          "organelle": {
+            "type": "string"
+          },
+          "contract": {
+            "type": "string"
+          },
+          "samples": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  ],
+  "authority": {
+    "mutation_class": "read_only",
+    "declared_valence": "proven",
+    "required_capability": null,
+    "granted_capabilities": []
+  },
+  "transports": [
+    "native",
+    "unix_socket"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

@@ -5,6 +5,8 @@
 //! the manifest's entrypoint key. Dynamic cdylib loading is an explicit
 //! future transport, NOT v1 (documented boundary: no untrusted native code
 //! in the rebuild until the Quarantine subsystem can contain it).
+mod organelle;
+pub use organelle::*;
 use pw_manifest::OrganelleManifest;
 use pw_organelles::{Organelle, RegistryError};
 use std::collections::HashMap;

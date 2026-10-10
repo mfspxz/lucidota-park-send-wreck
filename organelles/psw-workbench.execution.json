@@ -1,0 +1,33 @@
+{
+  "codon": "wb",
+  "organelle": "psw-workbench",
+  "execution_personality": {
+    "filesystem": {
+      "mode": "none",
+      "allowlist": []
+    },
+    "network": "none",
+    "process": "no-spawn",
+    "devices": "none",
+    "secrets": "none-required",
+    "platform": "linux-userland",
+    "sandbox": "none"
+  },
+  "kill_semantics": {
+    "policy": "suspend-first per fabric doctrine",
+    "suspend": "no-op (pure function / immutable validation; no state)",
+    "kill": "drop in-flight; host emits final receipt",
+    "state": "stateless-no-checkpoint"
+  },
+  "resource_envelope": {
+    "cpu_cores": 1,
+    "memory_mb": 256,
+    "wall_time_s": 60,
+    "io": "none"
+  },
+  "provenance": {
+    "manifest_hash_pinned_in_receipts": true,
+    "build_source_commit": "<filled at registration>",
+    "valence": "proven (deterministic validation; same flow+catalog -> same plan or refusal)"
+  }
+}

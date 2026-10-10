@@ -1,0 +1,43 @@
+{
+  "schema_version": "1",
+  "name": "psw-pipeline",
+  "codon": "pp",
+  "version": "0.1.0",
+  "description": "Discover -> Archive pipeline: the full PSW loop in one pass (organelle)",
+  "contracts": [
+    {
+      "op": "run",
+      "description": "run the full pipeline over a manifest directory",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "manifest_dir"
+        ],
+        "properties": {
+          "manifest_dir": {
+            "type": "string"
+          }
+        }
+      },
+      "mutation_class": "write",
+      "required_capability": "psw.pipeline.write"
+    }
+  ],
+  "authority": {
+    "mutation_class": "write",
+    "declared_valence": "candidate",
+    "required_capability": "psw.pipeline.write",
+    "granted_capabilities": [
+      "psw.pipeline.write"
+    ]
+  },
+  "transports": [
+    "native",
+    "unix_socket"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}

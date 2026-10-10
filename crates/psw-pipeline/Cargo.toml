@@ -4,6 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+organelle-host = { path = "../../../organelles/crates/organelle-host" }
+organelle-manifest = { path = "../../../organelles/crates/organelle-manifest" }
 pw-domain = { path = "../pw-domain" }
 pw-host = { path = "../pw-host" }
 pw-manifest = { path = "../pw-manifest" }

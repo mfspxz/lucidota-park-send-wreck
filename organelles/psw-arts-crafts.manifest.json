@@ -1,0 +1,64 @@
+{
+  "schema_version": "1",
+  "name": "psw-arts-crafts",
+  "codon": "ac",
+  "version": "0.1.0",
+  "description": "rendering organelle: grid state + selections -> SVG maps (organelle)",
+  "contracts": [
+    {
+      "op": "render_map",
+      "description": "render entities (+ optional selection box) to an SVG map",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "entities"
+        ],
+        "properties": {
+          "entities": {
+            "type": "array"
+          },
+          "sel_box": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 4,
+            "maxItems": 4
+          }
+        }
+      }
+    },
+    {
+      "op": "render_receipt_count",
+      "description": "render a receipt-count badge SVG",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "count"
+        ],
+        "properties": {
+          "count": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  ],
+  "authority": {
+    "mutation_class": "read_only",
+    "declared_valence": "proven",
+    "required_capability": null,
+    "granted_capabilities": []
+  },
+  "transports": [
+    "native",
+    "unix_socket",
+    "mcp",
+    "rest"
+  ],
+  "receipt_policy": {
+    "content_addressed": true,
+    "algorithm": "sha256",
+    "chain": true
+  }
+}
