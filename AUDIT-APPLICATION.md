@@ -122,9 +122,9 @@ Receipt `verify` fields name the reproduction command. Report attack claims refe
 
 | Scope | Status |
 |---|---|
-| Recorded 2026-10-07 close-shit commit used for test count | TBD |
-| `receipts/PROVENANCE.md` addition 2026-10-10 | TBD |
-| Any other current-tree commits | TBD |
+| Recorded 2026-10-07 close-shit commit used for test count | `2fc5654` (pre-existing, recorded-not-rerun) |
+| `receipts/PROVENANCE.md` addition 2026-10-10 | `fa07a25` |
+| Any other current-tree commits | none in this pass |
 
 ## Test counts
 
