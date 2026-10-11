@@ -34,7 +34,7 @@ fn pw_plugin_manifest() -> OrganelleManifest {
     OrganelleManifest {
         schema_version: MANIFEST_SCHEMA_VERSION.to_string(),
         name: "pw-plugin".to_string(),
-        codon: "pg".to_string(),
+        codon: "qp".to_string(),
         version: "0.1.0".to_string(),
         description: "plugin loading v1: manifest-driven, in-process (no untrusted native code) (organelle)".to_string(),
         contracts: vec![
@@ -121,7 +121,7 @@ mod tests {
         let v: Value = serde_json::from_str(include_str!("../../../organelles/pw-plugin.manifest.json")).expect("manifest JSON parses");
         let m = validate_manifest_json(&v).expect("static manifest must validate");
         assert_eq!(m.name, "pw-plugin");
-        assert_eq!(m.codon, "pg");
+        assert_eq!(m.codon, "qp");
     }
 
     #[test]
@@ -139,7 +139,7 @@ mod tests {
         let ctx = CallContext::new("migration-test", vec!["psw.plugin.load".to_string()]);
         let dir = std::env::temp_dir().join("pw-plugin-organelle-test");
         let _ = std::fs::create_dir_all(&dir);
-        let out = host.call(&ctx, "pg", "discover",
+        let out = host.call(&ctx, "qp", "discover",
             serde_json::json!({"root": dir.to_string_lossy()})).expect("discover");
         assert_eq!(out.get("plugins").and_then(|v| v.as_array()).map(|a| a.len()), Some(0));
         let _ = std::fs::remove_dir_all(&dir);

@@ -1,7 +1,7 @@
 {
   "schema_version": "1",
   "name": "psw-court",
-  "codon": "ct",
+  "codon": "qt",
   "version": "0.1.0",
   "description": "adjudication of claims: evidence tagged supports/refutes/neutral -> ruling (organelle)",
   "contracts": [

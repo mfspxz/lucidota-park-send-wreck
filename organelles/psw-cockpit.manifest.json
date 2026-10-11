@@ -1,7 +1,7 @@
 {
   "schema_version": "1",
   "name": "psw-cockpit",
-  "codon": "ck",
+  "codon": "qk",
   "version": "0.1.0",
   "description": "operator cockpit: named release stage sequences with status (organelle)",
   "contracts": [

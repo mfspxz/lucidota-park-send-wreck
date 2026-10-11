@@ -33,7 +33,7 @@ fn psw_cockpit_manifest() -> OrganelleManifest {
     OrganelleManifest {
         schema_version: MANIFEST_SCHEMA_VERSION.to_string(),
         name: "psw-cockpit".to_string(),
-        codon: "ck".to_string(),
+        codon: "qk".to_string(),
         version: "0.1.0".to_string(),
         description: "operator cockpit: named release stage sequences with status (organelle)".to_string(),
         contracts: vec![
@@ -151,7 +151,7 @@ mod tests {
         let v: Value = serde_json::from_str(include_str!("../../../organelles/psw-cockpit.manifest.json")).expect("manifest JSON parses");
         let m = validate_manifest_json(&v).expect("static manifest must validate");
         assert_eq!(m.name, "psw-cockpit");
-        assert_eq!(m.codon, "ck");
+        assert_eq!(m.codon, "qk");
     }
 
     #[test]
@@ -167,12 +167,12 @@ mod tests {
         host.register(psw_cockpit_organelle()).expect("registration must succeed");
 
         let ctx = CallContext::new("migration-test", vec!["psw.cockpit.write".to_string()]);
-        let out = host.call(&ctx, "ck", "plan_release",
+        let out = host.call(&ctx, "qk", "plan_release",
             serde_json::json!({"name": "r1", "stages": ["build", "ship"]})).expect("plan");
         let id = out.get("id").and_then(|v| v.as_str()).unwrap().to_string();
-        host.call(&ctx, "ck", "start_stage",
+        host.call(&ctx, "qk", "start_stage",
             serde_json::json!({"id": id, "stage": "build"})).expect("start");
-        let st = host.call(&ctx, "ck", "status",
+        let st = host.call(&ctx, "qk", "status",
             serde_json::json!({"id": id})).expect("status");
         assert_eq!(st.get("name").and_then(|v| v.as_str()), Some("r1"));
         let n = host.verify_chain().expect("receipt chain must verify");

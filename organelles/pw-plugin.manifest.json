@@ -1,7 +1,7 @@
 {
   "schema_version": "1",
   "name": "pw-plugin",
-  "codon": "pg",
+  "codon": "qp",
   "version": "0.1.0",
   "description": "plugin loading v1: manifest-driven, in-process (no untrusted native code) (organelle)",
   "contracts": [

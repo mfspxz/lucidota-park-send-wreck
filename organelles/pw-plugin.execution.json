@@ -1,5 +1,5 @@
 {
-  "codon": "pg",
+  "codon": "qp",
   "organelle": "pw-plugin",
   "execution_personality": {
     "filesystem": {

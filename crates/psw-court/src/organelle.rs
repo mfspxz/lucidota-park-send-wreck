@@ -42,7 +42,7 @@ fn psw_court_manifest() -> OrganelleManifest {
     OrganelleManifest {
         schema_version: MANIFEST_SCHEMA_VERSION.to_string(),
         name: "psw-court".to_string(),
-        codon: "ct".to_string(),
+        codon: "qt".to_string(),
         version: "0.1.0".to_string(),
         description: "adjudication of claims: evidence tagged supports/refutes/neutral -> ruling (organelle)".to_string(),
         contracts: vec![
@@ -148,7 +148,7 @@ mod tests {
         let v: Value = serde_json::from_str(include_str!("../../../organelles/psw-court.manifest.json")).expect("manifest JSON parses");
         let m = validate_manifest_json(&v).expect("static manifest must validate");
         assert_eq!(m.name, "psw-court");
-        assert_eq!(m.codon, "ct");
+        assert_eq!(m.codon, "qt");
     }
 
     #[test]
@@ -164,12 +164,12 @@ mod tests {
         host.register(psw_court_organelle()).expect("registration must succeed");
 
         let ctx = CallContext::new("migration-test", vec!["psw.court.write".to_string()]);
-        let out = host.call(&ctx, "ct", "file", serde_json::json!(
+        let out = host.call(&ctx, "qt", "file", serde_json::json!(
             {"statement": "the build is green",
              "evidence": [{"id": "e1", "stance": "supports", "summary": "ci log"},
                           {"id": "e2", "stance": "refutes", "summary": "flaky test"}]})).expect("file");
         let cid = out.get("claim_id").and_then(|v| v.as_str()).unwrap().to_string();
-        let ruling = host.call(&ctx, "ct", "adjudicate",
+        let ruling = host.call(&ctx, "qt", "adjudicate",
             serde_json::json!({"claim_id": cid})).expect("adjudicate");
         assert!(ruling.get("verdict").is_some());
         assert!(ruling.get("rationale").is_some());
